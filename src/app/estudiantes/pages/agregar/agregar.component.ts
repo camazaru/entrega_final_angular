@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EstudiantesService } from '../../../services/estudiantes/estudiantes.service';
 
@@ -16,15 +16,17 @@ export class AgregarComponent implements OnInit {
 
   EstudiantesService: any;
   
+  
   constructor(
     private api: EstudiantesService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
     ) {
-      this.formAdd= new FormGroup({
-        nombre: new FormControl(),
-        correo: new FormControl(),
-        imagen: new FormControl(),
-        activo: new FormControl(),
+      this.formAdd= this.formBuilder.group({
+        nombre: new FormControl('', [Validators.required, Validators.minLength(5)] ),
+        correo: new FormControl('', [Validators.required]),
+        imagen: new FormControl('', [Validators.required]),
+        activo: new FormControl('', [Validators.required]),
         
      })
     }
