@@ -1,0 +1,25 @@
+<div id="contenedor" class="m-4">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                Agregar Curso a la BD
+            </div>
+            <form [formGroup]="formAdd" (ngSubmit) = "postForm(formAdd.value)">
+                <input type="text" placeholder="Nombre Curso" required formControlName="nombre">
+                
+                <input type="text" placeholder="Precio" required formControlName="precio" >
+
+                <input type="text" placeholder="Imagen" required formControlName="imagen" >
+
+                             
+
+                  <div>              
+                <button type="submit" title="Ingresar" name="Ingresar">Agregar</button>
+                <button (click)="salir()">Salir</button>
+            </div>
+            </form>
+           
+        </div>
+
+    </div>
+</div>

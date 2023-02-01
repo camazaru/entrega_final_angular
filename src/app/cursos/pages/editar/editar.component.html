@@ -2,19 +2,14 @@
     <div id="central">
         <div id="login">
             <div class="titulo">
-                Editar Alumno
+                Editar Curso
             </div>
             <form [formGroup]="editarForm" (ngSubmit) = "postForm(editarForm.value)">
-                <input type="text" placeholder="Nombre Completo" required formControlName="nombre">
+                <input type="text" placeholder="Nombre Curso" required formControlName="nombre">
                 
-                <input type="email" placeholder="Email" required formControlName="correo" >
+                <input type="text" placeholder="Precio" required formControlName="precio" >
 
                 <input type="text" placeholder="Imagen" required formControlName="imagen" >
-
-                <input type="text" placeholder="Estado Alumno" required formControlName="activo" >
-
-               
-
                   <div>              
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
