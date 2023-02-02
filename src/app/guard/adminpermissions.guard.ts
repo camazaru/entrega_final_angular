@@ -10,6 +10,13 @@ export class AdminpermissionsGuard implements CanActivate {
 
   constructor(private router:Router){}
 
+   canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      
+      return this.checkAdmin()
+  }
+
   checkAdmin(){
     if(sessionStorage.getItem('role')){
       
@@ -20,15 +27,4 @@ return true
     }
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.checkAdmin()
-  }
-
-
-
-
- 
-  
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class SidenavComponent {
 
+  constructor(private router:Router){}
+
+  salir(){
+   localStorage.removeItem('token');
+   sessionStorage.removeItem('role');
+   this.router.navigate(['home'])
+
+  }
+
+
+
+  
 }
+

@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit{
   usuarioApi: any
 
   token:any
+  role:any
+  admin:any="admin"
 
   /*  */
   errorStatus:boolean = false;
@@ -51,13 +53,10 @@ export class LoginComponent implements OnInit{
   onSubmit() {
 
 this.userPostLogin = this.formLogin.value
-  
 this.email= this.userPostLogin.email
 this.password= this.userPostLogin.password
 
-
-
- this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
+this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
   data => {
     
     this.datosUser = data[0];
@@ -65,11 +64,19 @@ this.password= this.userPostLogin.password
     this.userApi= this.datosUser.email
     this.passwordApi= this.datosUser.password
     this.token= this.datosUser.token
-    console.log("aqui este el token", this.token)
+    this.role= this.datosUser.role
+    
   
     if (this.email==this.userApi && this.password==this.passwordApi)
     {
       localStorage.setItem("token", this.token)
+    
+
+      if(this.admin==this.role) {
+      sessionStorage.setItem("role",this.role )
+     }
+     
+
      return this.router.navigate(['/estudiantes/listar'])
     }else {
       
