@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit{
   userPostLogin: any
   usuarioApi: any
 
+  token:any
+
+  
+
  @Output() public userApi:any
   passwordApi:any
 
@@ -48,6 +52,7 @@ this.email= this.userPostLogin.email
 this.password= this.userPostLogin.password
 
 
+
  this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
   data => {
     
@@ -55,10 +60,12 @@ this.password= this.userPostLogin.password
     
     this.userApi= this.datosUser.email
     this.passwordApi= this.datosUser.password
+    this.token= this.datosUser.token
+    console.log("aqui este el token", this.token)
   
     if (this.email==this.userApi && this.password==this.passwordApi)
     {
-
+      localStorage.setItem("token", this.token)
      return this.router.navigate(['/estudiantes/listar'])
     }else {
       
