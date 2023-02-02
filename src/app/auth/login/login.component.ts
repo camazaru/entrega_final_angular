@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit{
   userPostLogin: any
   usuarioApi: any
 
-  userApi:any
+ @Output() public userApi:any
   passwordApi:any
 
   datosUser: any

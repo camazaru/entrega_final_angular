@@ -22,7 +22,8 @@ import { MaterialModule } from '../shared/material/material.module';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   exports: [
     BodyComponent,
