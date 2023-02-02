@@ -20,7 +20,11 @@ export class LoginComponent implements OnInit{
 
   token:any
 
-  
+  /*  */
+  errorStatus:boolean = false;
+  errorMsj:any = ""
+ /*  */
+
 
  @Output() public userApi:any
   passwordApi:any
@@ -38,7 +42,7 @@ export class LoginComponent implements OnInit{
    
 
   ngOnInit(): void {
-  
+  this.checkLocalStorage()
 
 }
 
@@ -77,6 +81,10 @@ this.password= this.userPostLogin.password
      
   }
 
-  
+  checkLocalStorage(){
+    if(localStorage.getItem('token')){
+this.router.navigate(['/estudiantes/listar'])
+    }
+  }
 
 }
