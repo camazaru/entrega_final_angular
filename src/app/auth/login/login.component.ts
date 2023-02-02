@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UserService } from '../../services/user/user.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +11,19 @@ import { UserService } from '../../services/user/user.service';
 export class LoginComponent implements OnInit{
 
   formLogin: FormGroup;
-  usersList: any
+  usersList:any;
+  email:any
+  password:any
+
+  userPostLogin: any
+  usuarioApi: any
+
+  userApi:any
+  passwordApi:any
+
+  datosUser: any
   
-  constructor(
-    private userService: UserService,
-    private router: Router
+  constructor(private activerouter:ActivatedRoute, private router:Router, private api:AuthService
     ) {
       this.formLogin= new FormGroup({
         email: new FormControl(),
@@ -23,23 +31,45 @@ export class LoginComponent implements OnInit{
      })
     }
 
+   
+
   ngOnInit(): void {
-  }
+  
+
+}
+
+
 
   onSubmit() {
 
+this.userPostLogin = this.formLogin.value
   
-    this.userService.getAllUser().subscribe(
-data=> {
-  this.usersList= data
-  console.log(this.usersList)
-}
-      
-    )
+this.email= this.userPostLogin.email
+this.password= this.userPostLogin.password
+
+
+ this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
+  data => {
     
+    this.datosUser = data[0];
+    
+    this.userApi= this.datosUser.email
+    this.passwordApi= this.datosUser.password
+  
+    if (this.email==this.userApi && this.password==this.passwordApi)
+    {
+
+     return this.router.navigate(['/estudiantes/listar'])
+    }else {
       
-      
+     return this.router.navigate(['/auth/register'])
+    }
+
+  })
+ 
+     
   }
 
- 
+  
+
 }

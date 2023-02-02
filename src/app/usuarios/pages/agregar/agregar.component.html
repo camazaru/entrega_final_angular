@@ -1,0 +1,27 @@
+<div id="contenedor" class="m-4">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                Agregar Usuario a la BD
+            </div>
+            <form [formGroup]="formAdd" (ngSubmit) ="postForm(formAdd.value)">
+                <input type="text" placeholder="Nombre Completo" required formControlName="username" >
+                
+                <input type="email" placeholder="Email" required formControlName="correo" >
+
+                <input type="text" placeholder="Password" required formControlName="password" >
+                <input type="text" placeholder="Rol" required formControlName="role" >
+
+                <input type="text" placeholder="Avatar" required formControlName="avatar" >
+                <input type="text" placeholder="Token" required formControlName="token" >                       
+
+                  <div>              
+                <button type="submit" title="Ingresar" name="Ingresar">Agregar</button>
+                <button (click)="salir()">Salir</button>
+            </div>
+            </form>
+           
+        </div>
+
+    </div>
+</div>

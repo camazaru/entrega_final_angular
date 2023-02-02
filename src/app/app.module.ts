@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EstudiantesModule } from './estudiantes/estudiantes.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 import { PublicModule } from './public/public.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -27,12 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
     PublicModule,
     AuthModule,
     HttpClientModule,
+    UsuariosModule
     
 
 
     
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   exports: [
     

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,  } from '@angular/forms';
-import { UserService } from '../../services/user/user.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,22 +9,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  formReg: FormGroup;
+  formAdd: FormGroup;
   
 
-  constructor(private userService: UserService,
+  AuthService: any
+  
+  constructor(private api: AuthService,
     private router: Router) {
-    this.formReg= new FormGroup({
+    this.formAdd= new FormGroup({
+      username: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
       
           })
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
-  onSubmit() {
+  postForm(form: any) {
+    this.api.postUser(form).subscribe(data => {
+      this.router.navigate(['auth/login'])
+    })
   }
 
 }
