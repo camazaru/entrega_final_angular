@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit{
   errorMsj:any = ""
  /*  */
 
+ 
+
 
  @Output() public userApi:any
   passwordApi:any
@@ -69,13 +71,12 @@ this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
   
     if (this.email==this.userApi && this.password==this.passwordApi)
     {
-      localStorage.setItem("token", this.token)
-    
-
-      if(this.admin==this.role) {
+    localStorage.setItem("token", this.token)
+    localStorage.setItem("userApi", this.userApi)
+    if(this.admin==this.role) {
       sessionStorage.setItem("role",this.role )
      }
-     
+  
 
      return this.router.navigate(['/estudiantes/listar'])
     }else {
