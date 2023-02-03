@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -23,6 +24,7 @@ import { MaterialModule } from '../shared/material/material.module';
     CommonModule,
     LayoutRoutingModule,
     MaterialModule,
+    AuthModule
     
   ],
   exports: [
