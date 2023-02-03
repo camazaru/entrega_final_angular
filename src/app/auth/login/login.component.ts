@@ -67,7 +67,7 @@ this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
     this.passwordApi= this.datosUser.password
     this.token= this.datosUser.token
     this.role= this.datosUser.role
-    
+      
   
     if (this.email==this.userApi && this.password==this.passwordApi)
     {
