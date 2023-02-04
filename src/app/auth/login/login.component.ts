@@ -3,12 +3,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+
 
   formLogin: FormGroup;
   usersList:any;
@@ -68,15 +70,16 @@ this.usuarioApi = this.api.getSingleUser(this.email).subscribe(
     this.token= this.datosUser.token
     this.role= this.datosUser.role
       
-  
+
+    
     if (this.email==this.userApi && this.password==this.passwordApi)
     {
     localStorage.setItem("token", this.token)
     localStorage.setItem("userApi", this.userApi)
+  
     if(this.admin==this.role) {
       sessionStorage.setItem("role",this.role )
      }
-  
 
      return this.router.navigate(['/estudiantes/listar'])
     }else {

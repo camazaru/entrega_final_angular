@@ -17,6 +17,7 @@ export class ListarComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    
     this.api.getAllEstudiantes().subscribe( data => {
 
       this.estudiantesList=data

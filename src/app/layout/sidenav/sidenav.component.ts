@@ -11,16 +11,18 @@ import { Router } from '@angular/router';
 })
 export class SidenavComponent {
 
+  userApi:any=""
   
-  
-  constructor(private router:Router){}
+  constructor(private router:Router){
+   
+  }
 
 
 
   salir(){
    localStorage.removeItem('token');
    sessionStorage.removeItem('role');
-   this.router.navigate(['home'])
+   localStorage.removeItem('userApi')   
 
   }
 

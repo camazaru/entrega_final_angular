@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
-const usuario= ""
+
 
 @Component({
   selector: 'app-header',
@@ -13,8 +16,30 @@ const usuario= ""
 
 
 export class HeaderComponent {
-usuario: any= localStorage.getItem('userApi')
+usuario:any = null
+user:any="usuario"
+data$:any
+  
+  
+  
+
+constructor(private router:Router, private api:AuthService){
+  
+}
+
+ngOnInit(): void {
+  
+ 
+}
 
 
 
+salir(){
+  localStorage.removeItem('token');
+  sessionStorage.removeItem('role');
+  localStorage.removeItem('userApi')
+  
+  this.usuario = null
+  this.router.navigate(['login'])
+ }
 }
