@@ -1,5 +1,6 @@
 <div class="container">
     <br>
+    <b *ngIf="(loading$ | async)">Cargando... </b>
   <h1 class="text-center">Listado de estudiantes</h1>
   
   <button type="button" class="btn btn-primary" (click)="nuevoEstudiante()">Agregar Estudiante</button>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -12,12 +12,17 @@ import { PublicModule } from './public/public.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { estudiantesReducer } from './state/reducers/alumnos.reducers';
+import { ROOT_REDUCERS } from './state/app.state';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
     
   ],
   imports: [
@@ -29,7 +34,10 @@ import { CookieService } from 'ngx-cookie-service';
     PublicModule,
     AuthModule,
     HttpClientModule,
-    UsuariosModule
+    UsuariosModule,
+    
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
       
   ],
   
