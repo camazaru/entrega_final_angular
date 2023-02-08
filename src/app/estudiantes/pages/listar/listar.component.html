@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <b *ngIf="(loading$ | async)">Cargando... </b>
+    <b>Cargando... </b>
   <h1 class="text-center">Listado de estudiantes</h1>
   
   <button type="button" class="btn btn-primary" (click)="nuevoEstudiante()">Agregar Estudiante</button>
@@ -17,12 +17,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let estudiante of estudiantesList" (click)="editarEstudiante(estudiante.id)">
-          <th scope="row">{{estudiante.id}}</th>
-          <td>{{estudiante.nombre}}</td>
-          <td>{{estudiante.correo}}</td>
-          <td>{{estudiante.imagen}}</td>
-          <td>{{estudiante.activo}}</td>
+        <tr *ngFor="let estudiantes of loadEstudiantes$ | async" (click)="editarEstudiante(estudiantes.id)">
+          <th scope="row">{{estudiantes.id}}</th>
+          <td>{{estudiantes.nombre}}</td>
+          <td>{{estudiantes.correo}}</td>
+          <td>{{estudiantes.imagen}}</td>
+          <td>{{estudiantes.activo}}</td>
   
         </tr>
        

@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EstudiantesService } from '../../../services/estudiantes/estudiantes.service';
 import { loadedItems, loadItems } from '../../../state/actions/alumnos.actions';
-import { selectLoading } from '../../../state/selectors/estudiantes.selectors';
+import { selectListEstudiantes, selectLoading } from '../../../state/selectors/estudiantes.selectors';
+import { estudiantesReducer } from '../../../state/reducers/alumnos.reducers';
 
 
 @Component({
@@ -14,29 +15,21 @@ import { selectLoading } from '../../../state/selectors/estudiantes.selectors';
 })
 export class ListarComponent implements OnInit{
 
-  loading$:Observable<any>= new Observable()
+  loadEstudiantes$:Observable<any>= new Observable()
 
   estudiantesList: any[] | undefined;
 
-  constructor(private api:EstudiantesService, private router:Router, private store: Store<any>){
+  constructor(private router:Router, private store: Store<any>){
+
 
   }
 
   ngOnInit(): void {
-this.loading$ = this.store.select(selectLoading)
-
+    this.loadEstudiantes$ = this.store.select(selectLoading)
 this.store.dispatch(loadItems())
-
-    this.api.getAllEstudiantes().subscribe( data => {
-
-      this.estudiantesList=data
+this.loadEstudiantes$ = this.store.select(selectListEstudiantes)
 
 
-
-      this.store.dispatch(loadedItems(
-        {estudiantes: data}
-      ));
-    })
 }
 
 nuevoEstudiante(){
@@ -46,4 +39,7 @@ nuevoEstudiante(){
 editarEstudiante(id:any){
   this.router.navigate(['/estudiantes/editar',id])
 }
+
+
+
 }

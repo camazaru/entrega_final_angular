@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { estudiantesReducer } from './state/reducers/alumnos.reducers';
 import { ROOT_REDUCERS } from './state/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { EstudiantesEffects } from './state/effects/estudiantes.effects';
 
 
 
@@ -37,7 +39,8 @@ import { ROOT_REDUCERS } from './state/app.state';
     UsuariosModule,
     
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([EstudiantesEffects])
       
   ],
   
