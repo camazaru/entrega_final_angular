@@ -5,29 +5,14 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
+export class HeaderComponent implements OnInit {
+  usuario: any = '';
 
+  constructor() {}
 
-
-
-export class HeaderComponent implements OnInit{
-
-  usuario:any=""
-
-  
-  
-  
-
-constructor(){
-  
-}
-
-ngOnInit(): void {
-  this.usuario=localStorage.getItem('userApi')
- }
-
- 
-
-
+  ngOnInit(): void {
+    this.usuario = localStorage.getItem('userApi');
+  }
 }

@@ -1,28 +1,46 @@
 <div id="contenedor" class="m-4">
-    <div id="central">
-        <div id="login">
-            <div class="titulo">
-                Editar Alumno
-            </div>
-            <form [formGroup]="editarForm" (ngSubmit) = "postForm(editarForm.value)">
-                <input type="text" placeholder="Nombre Completo" required formControlName="nombre">
-                
-                <input type="email" placeholder="Email" required formControlName="correo" >
+  <div id="central">
+    <div id="login">
+      <div class="titulo">Editar Alumno</div>
+      <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <input
+          type="text"
+          placeholder="Nombre Completo"
+          required
+          formControlName="nombre"
+        />
 
-                <input type="text" placeholder="Imagen" required formControlName="imagen" >
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          formControlName="correo"
+        />
 
-                <input type="text" placeholder="Estado Alumno" required formControlName="activo" >
+        <input
+          type="text"
+          placeholder="Imagen"
+          required
+          formControlName="imagen"
+        />
 
-               
+        <input
+          type="text"
+          placeholder="Estado Alumno"
+          required
+          formControlName="activo"
+        />
 
-                  <div>              
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
-                    <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
-            </div>
-            </form>
-           
+        <div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminar()">
+            Eliminar
+          </button>
+          <button type="button" class="btn btn-dark" (click)="salir()">
+            Salir
+          </button>
         </div>
-
+      </form>
     </div>
+  </div>
 </div>

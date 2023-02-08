@@ -1,23 +1,36 @@
 <div id="contenedor" class="m-4">
-    <div id="central">
-        <div id="login">
-            <div class="titulo">
-                Registro user
-            </div>
-            <form [formGroup]="formAdd" (ngSubmit)="postForm(formAdd.value)">
-                <input type="text"  placeholder="Username" required formControlName="username">
-                <input type="text"  placeholder="Email" required formControlName="email">
-                
-                <input type="password" placeholder="Contraseña"  required formControlName="password" >
-                
-                <button type="submit" title="Ingresar" name="Ingresar" value="enviar">Register</button>
-            </form>
-            <div class="pie-form">
-                <a href="#">¿Perdiste tu contraseña?</a>
-                <a href="#">¿No tienes Cuenta? Registrate</a>
-            </div>
-        </div>
+  <div id="central">
+    <div id="login">
+      <div class="titulo">Registro user</div>
+      <form [formGroup]="formAdd" (ngSubmit)="postForm(formAdd.value)">
+        <input
+          type="text"
+          placeholder="Username"
+          required
+          formControlName="username"
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          required
+          formControlName="email"
+        />
 
+        <input
+          type="password"
+          placeholder="Contraseña"
+          required
+          formControlName="password"
+        />
+
+        <button type="submit" title="Ingresar" name="Ingresar" value="enviar">
+          Register
+        </button>
+      </form>
+      <div class="pie-form">
+        <a href="#">¿Perdiste tu contraseña?</a>
+        <a href="#">¿No tienes Cuenta? Registrate</a>
+      </div>
     </div>
+  </div>
 </div>
-

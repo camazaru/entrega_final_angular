@@ -5,14 +5,8 @@ import { CursosRoutingModule } from './cursos-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from '../shared/material/material.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    CursosRoutingModule,
-    PagesModule,
-    MaterialModule,
-  ]
+  imports: [CommonModule, CursosRoutingModule, PagesModule, MaterialModule],
 })
-export class CursosModule { }
+export class CursosModule {}

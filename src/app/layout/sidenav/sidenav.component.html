@@ -1,56 +1,44 @@
 <mat-sidenav-container>
-    <mat-sidenav-content>
-    
-    <div style="margin: 20px;">
-    
-        <H1 class="text-center">Dashboard</H1>
-    
-    
-        <mat-nav-list>
-            <a mat-list-item routerLink="home">
-                <mat-icon>home</mat-icon><span>Home</span>
-            </a>
-            <a mat-list-item routerLink="auth/login">
-                <mat-icon>login</mat-icon><span>Login</span>
-            </a>
-            <a mat-list-item (click)="salir()">
-                <mat-icon>logout</mat-icon><span>Logout</span>
-            </a>
-        </mat-nav-list>
-    
-        <br>
-    
-        <mat-nav-list>
+  <mat-sidenav-content>
+    <div style="margin: 20px">
+      <H1 class="text-center">Dashboard</H1>
 
-            <a mat-list-item routerLink="usuarios/listar">
-                <mat-icon>people</mat-icon><span>Listado Usuarios</span>
-            </a>
+      <mat-nav-list>
+        <a mat-list-item routerLink="home">
+          <mat-icon>home</mat-icon><span>Home</span>
+        </a>
+        <a mat-list-item routerLink="auth/login">
+          <mat-icon>login</mat-icon><span>Login</span>
+        </a>
+        <a mat-list-item (click)="salir()">
+          <mat-icon>logout</mat-icon><span>Logout</span>
+        </a>
+      </mat-nav-list>
 
-            <a mat-list-item routerLink="estudiantes/listar">
-                <mat-icon>people</mat-icon><span>Listado Estudiantes</span>
-            </a>
-    
-            <a mat-list-item routerLink="cursos/listar">
-                <mat-icon>school</mat-icon><span>Listado Cursos</span>
-            </a>
-    
-            <a mat-list-item routerLink="inscripciones/listar">
-                <mat-icon>store</mat-icon><span>Inscripcion </span>
-            </a>
-    
-    
-            </mat-nav-list>
-    
-       
-    
-        </div>
-    
-      </mat-sidenav-content>
-    
-    </mat-sidenav-container>
-    
-    
-    <!-- 
+      <br />
+
+      <mat-nav-list>
+        <a mat-list-item routerLink="usuarios/listar">
+          <mat-icon>people</mat-icon><span>Listado Usuarios</span>
+        </a>
+
+        <a mat-list-item routerLink="estudiantes/listar">
+          <mat-icon>people</mat-icon><span>Listado Estudiantes</span>
+        </a>
+
+        <a mat-list-item routerLink="cursos/listar">
+          <mat-icon>school</mat-icon><span>Listado Cursos</span>
+        </a>
+
+        <a mat-list-item routerLink="inscripciones/listar">
+          <mat-icon>store</mat-icon><span>Inscripcion </span>
+        </a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- 
                 <mat-expansion-panel [class.mat-elevation-z0]="false">
                     <mat-expansion-panel-header>
                         Inicio
@@ -95,9 +83,3 @@
                         </a>
                     </mat-nav-list>
                 </mat-expansion-panel> -->
-    
-    
-               
-    
-      
-    

@@ -12,6 +12,6 @@ import { PagesModule } from './pages/pages.module';
     InscripcionesRoutingModule,
     PagesModule,
     MaterialModule,
-  ]
+  ],
 })
-export class InscripcionesModule { }
+export class InscripcionesModule {}

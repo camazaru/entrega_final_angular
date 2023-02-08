@@ -6,38 +6,30 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styleUrls: ['./agregar.component.css']
+  styleUrls: ['./agregar.component.css'],
 })
 export class AgregarComponent implements OnInit {
   formAdd: FormGroup;
 
   CursosService: any;
-  
-  constructor(
-    private api: CursosService,
-    private router: Router
-    ) {
-      this.formAdd= new FormGroup({
-        nombre: new FormControl(),
-        precio: new FormControl(),
-        imagen: new FormControl(),
-           
-     })
-    }
 
-  ngOnInit(): void {
+  constructor(private api: CursosService, private router: Router) {
+    this.formAdd = new FormGroup({
+      nombre: new FormControl(),
+      precio: new FormControl(),
+      imagen: new FormControl(),
+    });
   }
 
-  postForm(form: any){
-    this.api.postCurso(form).subscribe(data => {
-      this.router.navigate(['cursos/listar'])
-        })
-  }
- 
+  ngOnInit(): void {}
 
-  salir(){
+  postForm(form: any) {
+    this.api.postCurso(form).subscribe((data) => {
+      this.router.navigate(['cursos/listar']);
+    });
+  }
+
+  salir() {
     this.router.navigate(['/cursos/listar']);
   }
-
-
 }

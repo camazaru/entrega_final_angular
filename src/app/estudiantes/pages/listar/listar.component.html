@@ -1,32 +1,30 @@
 <div class="container">
-    <br>
-    
+  <br />
+
   <h1 class="text-center">Listado de estudiantes</h1>
-  
-  <button type="button" class="btn btn-primary" (click)="nuevoEstudiante()">Agregar Estudiante</button>
-  
+
+  <button type="button" class="btn btn-primary" (click)="nuevoEstudiante()">
+    Agregar Estudiante
+  </button>
+
   <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Imagen</th>
-          <th scope="col">Activo</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of usuarios" (click)="editarEstudiante(user.id)">
-          <th scope="row">{{user.id}}</th>
-          <td>{{user.nombre}}</td>
-          <td>{{user.correo}}</td>
-          <td>{{user.imagen}}</td>
-          <td>{{user.activo}}</td>
-  
-        </tr>
-       
-      </tbody>
-    </table>
-          
-  </div>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Activo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usuarios" (click)="editarEstudiante(user.id)">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.correo }}</td>
+        <td>{{ user.imagen }}</td>
+        <td>{{ user.activo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

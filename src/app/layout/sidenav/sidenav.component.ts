@@ -1,34 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css']
+  styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
+  userApi: any = '';
 
-  userApi:any=""
-  
-  constructor(private router:Router){
-   
+  constructor(private router: Router) {}
+
+  salir() {
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('role');
+    localStorage.removeItem('userApi');
+    this.router.navigate(['home']);
   }
-
-
-
-  salir(){
-   localStorage.removeItem('token');
-   sessionStorage.removeItem('role');
-   localStorage.removeItem('userApi') 
-   this.router.navigate(['home'])  
-
-  }
-
-
-
-  
 }
-

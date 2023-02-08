@@ -6,20 +6,8 @@ import { ListarComponent } from './listar/listar.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../shared/material/material.module';
 
-
-
 @NgModule({
-  declarations: [
-    AgregarComponent,
-    EditarComponent,
-    ListarComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MaterialModule
-
-  ]
+  declarations: [AgregarComponent, EditarComponent, ListarComponent],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, MaterialModule],
 })
-export class PagesModule { }
+export class PagesModule {}

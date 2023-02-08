@@ -12,10 +12,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatMenuModule} from '@angular/material/menu'
-import { MatTooltipModule} from '@angular/material/tooltip'
-
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -34,12 +32,8 @@ import { MatTooltipModule} from '@angular/material/tooltip'
     MatExpansionModule,
     MatMenuModule,
     MatTooltipModule,
-    
-
-
-
-
-  ], exports: [
+  ],
+  exports: [
     CommonModule,
     MatButtonModule,
     MatCardModule,
@@ -54,6 +48,6 @@ import { MatTooltipModule} from '@angular/material/tooltip'
     MatExpansionModule,
     MatMenuModule,
     MatTooltipModule,
-  ]
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

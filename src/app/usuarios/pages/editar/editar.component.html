@@ -1,30 +1,53 @@
 <div id="contenedor" class="m-4">
-    <div id="central">
-        <div id="login">
-            <div class="titulo">
-                Editar Usuario
-            </div>
-            <form [formGroup]="editarForm" (ngSubmit) = "postForm(editarForm.value)">
-                <input type="text" placeholder="Nombre Completo" required formControlName="username" >
-                
-                <input type="email" placeholder="Email" required formControlName="email" >
+  <div id="central">
+    <div id="login">
+      <div class="titulo">Editar Usuario</div>
+      <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <input
+          type="text"
+          placeholder="Nombre Completo"
+          required
+          formControlName="username"
+        />
 
-                <input type="text" placeholder="Password" required formControlName="password" >
-                <input type="text" placeholder="Rol" required formControlName="role" >
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          formControlName="email"
+        />
 
-                <input type="text" placeholder="Avatar" required formControlName="avatar" >
-                <input type="text" placeholder="Token" required formControlName="token" >  
+        <input
+          type="text"
+          placeholder="Password"
+          required
+          formControlName="password"
+        />
+        <input type="text" placeholder="Rol" required formControlName="role" />
 
-               
+        <input
+          type="text"
+          placeholder="Avatar"
+          required
+          formControlName="avatar"
+        />
+        <input
+          type="text"
+          placeholder="Token"
+          required
+          formControlName="token"
+        />
 
-                  <div>              
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
-                    <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
-            </div>
-            </form>
-           
+        <div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminar()">
+            Eliminar
+          </button>
+          <button type="button" class="btn btn-dark" (click)="salir()">
+            Salir
+          </button>
         </div>
-
+      </form>
     </div>
+  </div>
 </div>

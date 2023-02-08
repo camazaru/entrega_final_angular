@@ -5,16 +5,9 @@ import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from '../shared/material/material.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    UsuariosRoutingModule,
-    PagesModule,
-    MaterialModule
-  ],
-  exports: [
-    PagesModule]
+  imports: [CommonModule, UsuariosRoutingModule, PagesModule, MaterialModule],
+  exports: [PagesModule],
 })
-export class UsuariosModule { }
+export class UsuariosModule {}

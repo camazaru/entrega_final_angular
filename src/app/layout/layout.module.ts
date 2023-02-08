@@ -9,31 +9,14 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { AuthModule } from '../auth/auth.module';
 
-
-
 @NgModule({
   declarations: [
     BodyComponent,
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-    
- 
   ],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule,
-    MaterialModule,
-    AuthModule
-    
-  ],
-  exports: [
-    BodyComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidenavComponent,
-    
-
-  ]
+  imports: [CommonModule, LayoutRoutingModule, MaterialModule, AuthModule],
+  exports: [BodyComponent, HeaderComponent, FooterComponent, SidenavComponent],
 })
-export class LayoutModule { }
+export class LayoutModule {}

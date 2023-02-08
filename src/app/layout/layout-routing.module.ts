@@ -5,18 +5,16 @@ import { EditarComponent } from '../estudiantes/pages/editar/editar.component';
 import { ListarComponent } from '../estudiantes/pages/listar/listar.component';
 
 const routes: Routes = [
+  { path: 'agregar', component: AgregarComponent },
+  { path: 'listar', component: ListarComponent },
+  { path: 'editar/:id', component: EditarComponent },
+  { path: 'eliminar/:id', component: EditarComponent },
 
-  { path: 'agregar', component: AgregarComponent},
-  { path: 'listar', component: ListarComponent},
-  { path: 'editar/:id', component: EditarComponent},
-  { path: 'eliminar/:id', component: EditarComponent},
-  
   { path: '**', component: ListarComponent },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}
