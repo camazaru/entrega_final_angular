@@ -10,7 +10,6 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { PublicModule } from './public/public.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './state/app.reducers';
@@ -36,7 +35,7 @@ import { EffectsArray } from './state/effects/index';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent],
   exports: [],
 })

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CookiesServiceService } from '../../services/cookies/cookies-service.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,18 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   usuario: any = '';
 
-  constructor() {}
+  constructor(private cookiesServiceService: CookiesServiceService) {}
 
   ngOnInit(): void {
-    this.usuario = localStorage.getItem('userApi');
+    this.cookiesServiceService.disparadorDeCookie.subscribe(data=> {
+      this.usuario= data
+       })
+
+       this.cookiesServiceService.borrarCookie.subscribe(data=> {
+        this.usuario= data
+         })
   }
+
+  
+
 }

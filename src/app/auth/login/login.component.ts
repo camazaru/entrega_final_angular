@@ -2,6 +2,8 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { CookiesServiceService } from '../../services/cookies/cookies-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -34,7 +36,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private activerouter: ActivatedRoute,
     private router: Router,
-    private api: AuthService
+    private api: AuthService,
+    private cookiesServiceService: CookiesServiceService
+  
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -62,6 +66,7 @@ export class LoginComponent implements OnInit {
       if (this.email == this.userApi && this.password == this.passwordApi) {
         localStorage.setItem('token', this.token);
         localStorage.setItem('userApi', this.userApi);
+        this.cookiesServiceService.disparadorDeCookie.emit(this.userApi)
 
         if (this.admin == this.role) {
           sessionStorage.setItem('role', this.role);
