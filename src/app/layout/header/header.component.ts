@@ -9,17 +9,20 @@ import { CookiesServiceService } from '../../services/cookies/cookies-service.se
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  usuario: any = '';
+  usuario: any = null;
+
 
   constructor(private cookiesServiceService: CookiesServiceService) {}
 
   ngOnInit(): void {
     this.cookiesServiceService.disparadorDeCookie.subscribe(data=> {
       this.usuario= data
+     
        })
 
        this.cookiesServiceService.borrarCookie.subscribe(data=> {
         this.usuario= data
+      
          })
   }
 
