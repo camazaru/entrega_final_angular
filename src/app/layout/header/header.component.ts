@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth/auth.service';
-
-
-
 
 @Component({
   selector: 'app-header',
@@ -15,31 +11,23 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 
-export class HeaderComponent {
-usuario:any = null
-user:any="usuario"
-data$:any
+export class HeaderComponent implements OnInit{
+
+  usuario:any=""
+
   
   
   
 
-constructor(private router:Router, private api:AuthService){
+constructor(){
   
 }
 
 ngOnInit(): void {
-  
- 
-}
-
-
-
-salir(){
-  localStorage.removeItem('token');
-  sessionStorage.removeItem('role');
-  localStorage.removeItem('userApi')
-  
-  this.usuario = null
-  this.router.navigate(['login'])
+  this.usuario=localStorage.getItem('userApi')
  }
+
+ 
+
+
 }

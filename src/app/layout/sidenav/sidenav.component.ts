@@ -22,7 +22,8 @@ export class SidenavComponent {
   salir(){
    localStorage.removeItem('token');
    sessionStorage.removeItem('role');
-   localStorage.removeItem('userApi')   
+   localStorage.removeItem('userApi') 
+   this.router.navigate(['home'])  
 
   }
 

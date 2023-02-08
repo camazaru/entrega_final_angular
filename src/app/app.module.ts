@@ -14,10 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { estudiantesReducer } from './state/reducers/alumnos.reducers';
-import { ROOT_REDUCERS } from './state/app.state';
+import { appReducers } from './state/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { EstudiantesEffects } from './state/effects/estudiantes.effects';
+
+import { EffectsArray } from './state/effects/index';
 
 
 
@@ -37,10 +37,11 @@ import { EstudiantesEffects } from './state/effects/estudiantes.effects';
     AuthModule,
     HttpClientModule,
     UsuariosModule,
-    
-    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([EstudiantesEffects])
+    
       
   ],
   
