@@ -67,9 +67,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', this.token);
         localStorage.setItem('userApi', this.userApi);
         this.cookiesServiceService.disparadorDeCookie.emit(this.userApi)
+       
 
         if (this.admin == this.role) {
           sessionStorage.setItem('role', this.role);
+          this.cookiesServiceService.disparadorDeRole.emit(this.role)
         }
 
         return this.router.navigate(['/estudiantes/listar']);
