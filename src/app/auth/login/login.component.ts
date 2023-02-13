@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   errorMsj: any = '';
   /*  */
 
-  @Output() public userApi: any;
+  userApi: any;
   passwordApi: any;
 
   datosUser: any;
@@ -66,12 +66,13 @@ export class LoginComponent implements OnInit {
       if (this.email == this.userApi && this.password == this.passwordApi) {
         localStorage.setItem('token', this.token);
         localStorage.setItem('userApi', this.userApi);
-        this.cookiesServiceService.disparadorDeCookie.emit(this.userApi)
+        this.cookiesServiceService.token$.emit(this.token)
+        this.cookiesServiceService.userApi$.emit(this.userApi)
        
 
         if (this.admin == this.role) {
           sessionStorage.setItem('role', this.role);
-          this.cookiesServiceService.disparadorDeRole.emit(this.role)
+          this.cookiesServiceService.role$.emit(this.role)
         }
 
         return this.router.navigate(['/estudiantes/listar']);

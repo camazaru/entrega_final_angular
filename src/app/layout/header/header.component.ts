@@ -9,21 +9,27 @@ import { CookiesServiceService } from '../../services/cookies/cookies-service.se
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  usuario: any = null;
+userApi: any = localStorage.getItem('userApi')
 
 
-  constructor(private cookiesServiceService: CookiesServiceService) {}
+  constructor(private cookiesServiceService: CookiesServiceService) {
+    this.cookiesServiceService.userApi$.subscribe(data=> {
+      this.userApi= data
+
+      
+  })
+
+  }
 
   ngOnInit(): void {
-    this.cookiesServiceService.disparadorDeCookie.subscribe(data=> {
-      this.usuario= data
-     
-       })
+  
+    this.cookiesServiceService.userApi$.subscribe(data=> {
+      this.userApi= data
 
-       this.cookiesServiceService.borrarCookie.subscribe(data=> {
-        this.usuario= data
       
-         })
+  })
+  
+  
   }
 
   

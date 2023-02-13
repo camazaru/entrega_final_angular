@@ -1,11 +1,13 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CookiesServiceService {
-@Output() disparadorDeCookie: EventEmitter<any> = new EventEmitter();
-@Output() borrarCookie: EventEmitter<any> = new EventEmitter();
-@Output() disparadorDeRole: EventEmitter<any> = new EventEmitter();
+token$ = new EventEmitter<any>()
+role$ = new EventEmitter<any>()
+userApi$ = new EventEmitter<any>()
+
   constructor() { }
 }

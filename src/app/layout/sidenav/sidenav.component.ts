@@ -10,40 +10,48 @@ import { CookiesServiceService } from '../../services/cookies/cookies-service.se
   styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent implements OnInit{
-  userApi: any = '';
-  usuario: any = '';
- 
- cookie:any
- role:any=''
- 
-  constructor(private router: Router, private cookiesServiceService: CookiesServiceService) {
+
+ userApi:any = localStorage.getItem('userApi')
+ token:any= localStorage.getItem('token')
+ role:any=sessionStorage.getItem('role')
+
+constructor(private router: Router, private cookiesServiceService: CookiesServiceService) {
     
-    this.cookiesServiceService.disparadorDeCookie.subscribe(data=> {
-      this.usuario= data
+    this.cookiesServiceService.token$.subscribe(data=> {
+      this.token= data
+
     
   })
-
-  
-
   }
-
-  
 
 ngOnInit(): void {
   
-  this.cookiesServiceService.disparadorDeRole.subscribe(data=> {
-    this.role=data
+  this.cookiesServiceService.token$.subscribe(data=> {
+    this.token=data
         })
+
+  this.cookiesServiceService.role$.subscribe(data =>
+    this.role=data)     
+    
+      
+        
 
 }
 
   salir() {
-    localStorage.removeItem('token');
+    
     sessionStorage.removeItem('role');
     localStorage.removeItem('userApi');
-    this.cookiesServiceService.borrarCookie.emit(this.userApi)
-    this.usuario=null
-    this.role=''
+    localStorage.removeItem('token')
+    this.token= null
+    this.role=null
+   
+   
+
+    this.cookiesServiceService.token$.subscribe("token")
+    this.cookiesServiceService.role$.subscribe("role")
+    this.cookiesServiceService.userApi$.emit("")
+   
     this.router.navigate(['home']);
   }
 

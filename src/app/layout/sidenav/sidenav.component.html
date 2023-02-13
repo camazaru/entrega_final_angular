@@ -7,30 +7,30 @@
         <a mat-list-item routerLink="home">
           <mat-icon>home</mat-icon><span>Home</span>
         </a>
-        <a mat-list-item routerLink="auth/login" *ngIf="usuario==null">
+        <a mat-list-item routerLink="auth/login" *ngIf="token==null">
           <mat-icon>login</mat-icon><span>Login</span>
         </a>
-        <a mat-list-item (click)="salir()" *ngIf="usuario!=null">
+        <a mat-list-item (click)="salir()" *ngIf="token!==null">
           <mat-icon>logout</mat-icon><span>Logout</span>
         </a>
       </mat-nav-list>
 
       <br />
 
-      <mat-nav-list *ngIf="usuario!=null">
-        <a mat-list-item routerLink="usuarios/listar" *ngIf="role != '' ">
+      <mat-nav-list>
+        <a mat-list-item routerLink="usuarios/listar"  *ngIf="role!== null">
           <mat-icon>people</mat-icon><span>Listado Usuarios</span>
         </a>
 
-        <a mat-list-item routerLink="estudiantes/listar">
+        <a mat-list-item routerLink="estudiantes/listar"  *ngIf="token!== null">
           <mat-icon>people</mat-icon><span>Listado Estudiantes</span>
         </a>
 
-        <a mat-list-item routerLink="cursos/listar">
+        <a mat-list-item routerLink="cursos/listar"  *ngIf="token!== null">
           <mat-icon>school</mat-icon><span>Listado Cursos</span>
         </a>
 
-        <a mat-list-item routerLink="inscripciones/listar">
+        <a mat-list-item routerLink="inscripciones/listar"  *ngIf="token!== null">
           <mat-icon>store</mat-icon><span>Inscripcion </span>
         </a>
       </mat-nav-list>
@@ -38,48 +38,3 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<!-- 
-                <mat-expansion-panel [class.mat-elevation-z0]="false">
-                    <mat-expansion-panel-header>
-                        Inicio
-                    </mat-expansion-panel-header>
-                    
-                    <mat-nav-list>
-                        <a mat-list-item routerLink="home">
-                            <mat-icon>home</mat-icon><span>Home</span>
-                        </a>
-                        <a mat-list-item routerLink="auth/login">
-                            <mat-icon>login</mat-icon><span>Login</span>
-                        </a>
-                        <a mat-list-item routerLink="home" (click)="onClick()">
-                            <mat-icon>logout</mat-icon><span>Logout</span>
-                        </a>
-                      
-                    </mat-nav-list>
-                </mat-expansion-panel>
-              
-    
-                <mat-expansion-panel [class.mat-elevation-z0]="true">
-                    <mat-expansion-panel-header>
-                        Panel Principal
-                    </mat-expansion-panel-header>
-    
-                    
-                    <mat-nav-list>
-                        <a mat-list-item routerLink="estudiantes/listar">
-                            <mat-icon>people</mat-icon><span>listar</span>
-                        </a>
-                        <a mat-list-item routerLink="estudiantes/agregar">
-                            <mat-icon>person_add</mat-icon><span>Agregar</span>
-                        </a>
-                        <a mat-list-item routerLink="estudiantes/buscar">
-                            <mat-icon>android</mat-icon><span>Buscar</span>
-                        </a>
-                        <a mat-list-item routerLink="estudiantes/modificar">
-                            <mat-icon>android</mat-icon><span>Actualizar</span>
-                        </a>
-                        <a mat-list-item routerLink="estudiantes/eliminar">
-                            <mat-icon>delete_sweep</mat-icon><span>Eliminar</span>
-                        </a>
-                    </mat-nav-list>
-                </mat-expansion-panel> -->
